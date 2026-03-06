@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Build
+build/
+.react-router/
+
+# Env
+.env
+
+# Editor
+.DS_Store
+*.local

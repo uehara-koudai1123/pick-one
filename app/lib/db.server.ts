@@ -1,0 +1,21 @@
+import { PrismaClient } from "@prisma/client";
+
+let prisma: PrismaClient;
+
+declare global {
+  // eslint-disable-next-line no-var
+  var __prisma: PrismaClient | undefined;
+}
+
+if (process.env.NODE_ENV === "production") {
+  prisma = new PrismaClient();
+} else {
+  // Reuse the same Prisma instance across hot reloads in development
+  // to avoid exhausting the database connection pool.
+  if (!global.__prisma) {
+    global.__prisma = new PrismaClient();
+  }
+  prisma = global.__prisma;
+}
+
+export { prisma };

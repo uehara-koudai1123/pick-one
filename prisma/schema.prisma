@@ -1,0 +1,33 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Item {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  emoji       String
+  color       String   @default("#6366f1")
+  votes       Vote[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("items")
+}
+
+model Vote {
+  id        String   @id @default(cuid())
+  itemId    String
+  item      Item     @relation(fields: [itemId], references: [id])
+  sessionId String
+  createdAt DateTime @default(now())
+
+  @@unique([itemId, sessionId])
+  @@map("votes")
+}
