@@ -1,0 +1,45 @@
+{
+  "name": "pick-one",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "@react-router/node": "^7.5.0",
+    "@react-router/serve": "^7.5.0",
+    "isbot": "^5.1.17",
+    "lucide-react": "^0.503.0",
+    "pg": "^8.14.1",
+    "prisma": "^6.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^7.5.0"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.5.0",
+    "@tailwindcss/vite": "^4.1.4",
+    "@types/node": "^22",
+    "@types/pg": "^8.11.14",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "dotenv": "^17.3.1",
+    "tailwindcss": "^4.1.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.3.1",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
